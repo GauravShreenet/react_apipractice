@@ -1,4 +1,5 @@
 import React from 'react'
+import { Card } from './Card'
 
 export const Display = () => {
   return (
@@ -14,12 +15,14 @@ export const Display = () => {
                     </div>
                     <div className="col-md-3">
                         <div className="d-grid">
-                            <button className="btn btn-warning">Search</button>
+                            <button type="submit" className="btn btn-warning">Search</button>
                         </div>
                     </div>
                 </div>
-                
             </form>
+            <div className="col-md mt-3 d-flex justify-content-center">
+                <Card />
+            </div>
         </div>
     </div>
     

@@ -15,7 +15,7 @@ export const Display = () => {
                     </div>
                     <div className="col-md-3">
                         <div className="d-grid">
-                            <button type="submit" className="btn btn-warning">Search</button>
+                            <button type="submit" className="btn btn-danger text-light">Search</button>
                         </div>
                     </div>
                 </div>

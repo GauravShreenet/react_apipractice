@@ -1,6 +1,7 @@
 
 import './App.css';
 import { Display } from './component/Display';
+import { List } from './component/List';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         </div>
 
         <Display />
+        <List />
       </div>
       
     </div>

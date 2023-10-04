@@ -19,7 +19,7 @@ export const List = () => {
             </div>
 
             <div className="col-md mt-5 gap-3 d-flex flex-wrap">
-                <Card />
+                
             </div>
 
         </div>

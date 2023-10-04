@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const Card = ({hero}) => {
+export const Card = ({ hero }) => {
     const IMAGE_SIZE = 'portrait_fantastic'
 
     return (
@@ -8,7 +8,7 @@ export const Card = ({hero}) => {
             <img className="card-img-top" src={`${hero?.thumbnail?.path}/${IMAGE_SIZE}.${hero?.thumbnail?.extension}`} alt="Card image cap" />
             <div className="card-body">
                 <h5 className="card-title">{hero?.name}</h5>
-                <p className="card-text">{hero?.series}</p>
+                <p className="card-text">{hero?.description}</p>
                 <a href="#" className="btn btn-danger">Go somewhere</a>
             </div>
         </div>

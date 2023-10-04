@@ -22,7 +22,7 @@ export const fetchMovie = async (name) => {
             return results;
         }else {
                 throw new Error("No results found")
-            }
+        }
        
 
         // if (data && data.result && data.result.length > 0) {

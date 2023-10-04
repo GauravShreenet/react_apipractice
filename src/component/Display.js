@@ -15,8 +15,9 @@ export const Display = () => {
         const str = strRef.current.value;
         
         const data = await fetchMovie(str)
-
-        if (data && data.length > 0) {
+        if (data && data.Error) {
+            setError(data.Error)
+        }else if (data && data.length > 0) {
             setCharacter(data);
         }else{
             setError(data.Error)
@@ -41,11 +42,11 @@ export const Display = () => {
                     </div>
                 </div>
             </form>
-            <div className="col-md mt-3 d-flex justify-content-center">
+            <div className="col-md mt-3 d-flex justify-content-center flex-wrap gap-5">
                 {error && <div className='alert alert-danger'>
                     {error}
                 </div>}
-                {charater?.name && (
+                {charater.length > 0 && (
                     charater.map((item, i)=> (<Card key={i} hero = {item}/>))
                 )}
             </div>

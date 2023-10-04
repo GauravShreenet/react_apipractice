@@ -1,6 +1,7 @@
 
 import './App.css';
 import { Display } from './component/Display';
+import { Footer } from './component/Footer';
 import { List } from './component/List';
 
 function App() {
@@ -16,8 +17,8 @@ function App() {
 
         <Display />
         <List />
+        <Footer />
       </div>
-      
     </div>
   );
 }

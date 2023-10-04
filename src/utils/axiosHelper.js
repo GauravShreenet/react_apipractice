@@ -15,8 +15,23 @@ let hash = getHash(ts, privateKey, apiKey);
 export const fetchMovie = async (name) => {
     try{
         const response = await axios.get(`${urlApi}?ts=${ts}&apikey=${apiKey}&hash=${hash}&nameStartsWith=${name}`)
-        console.log(response.data)
-        return response.data;
+        
+        if (response.data && response.data.data && response.data.data.results){
+            const results = response.data.data.results;
+            console.log(results);
+            return results;
+        }else {
+                throw new Error("No results found")
+            }
+       
+
+        // if (data && data.result && data.result.length > 0) {
+        //     console.log(data.result)
+        //     return data.result;
+        // }else {
+        //     throw new Error("No results found")
+        // }
+
         
     }catch(error) {
         console.log(error)

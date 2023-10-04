@@ -4,19 +4,19 @@ import { fetchMovie } from '../utils/axiosHelper'
 
 export const Display = () => {
 
-    const [charater, setCharacter] = useState({});
+    const [charater, setCharacter] = useState([]);
     const [error, setError] = useState("");
     const strRef = useRef("");
 
     const handleOnSubmit = async (e) => {
         e.preventDefault();
-        setCharacter({});
+        setCharacter([]);
         setError("")
         const str = strRef.current.value;
         
         const data = await fetchMovie(str)
 
-        if (data.Response === "True") {
+        if (data && data.length > 0) {
             setCharacter(data);
         }else{
             setError(data.Error)
@@ -42,7 +42,12 @@ export const Display = () => {
                 </div>
             </form>
             <div className="col-md mt-3 d-flex justify-content-center">
-                {charater?.characterId && <Card charater = {charater}/>}
+                {error && <div className='alert alert-danger'>
+                    {error}
+                </div>}
+                {charater?.name && (
+                    charater.map((item, i)=> (<Card key={i} hero = {item}/>))
+                )}
             </div>
         </div>
     </div>

@@ -1,5 +1,5 @@
 import axios from "axios";
-import MD5 from 'crypto-js/md5'
+import { MD5 } from "crypto-js";
 
 // http://gateway.marvel.com/v1/public/comics?apikey=yourAPIKEY
 const getHash = (ts, secretKey, publicKey) => {
@@ -15,7 +15,9 @@ let hash = getHash(ts, privateKey, apiKey);
 export const fetchMovie = async (name) => {
     try{
         const response = await axios.get(`${urlApi}?ts=${ts}&apikey=${apiKey}&hash=${hash}&nameStartsWith=${name}`)
+        console.log(response.data)
         return response.data;
+        
     }catch(error) {
         console.log(error)
     }

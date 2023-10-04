@@ -9,8 +9,10 @@ export const Display = () => {
     const strRef = useRef("");
 
     const handleOnSubmit = async (e) => {
-        e.preventDeafult();
+        e.preventDefault();
         setCharacter({});
+        setError("")
+        const str = strRef.current.value;
         
         const data = await fetchMovie(str)
 
@@ -25,7 +27,7 @@ export const Display = () => {
     <div className="rounded-2 p-5 mt-5 shadow">
         <div className="row">
             <div className="col">
-                <h3>Comic Character</h3>
+                <h3>Marvel Characters</h3>
             </div>
             <form onSubmit={handleOnSubmit}>
                 <div className="row">

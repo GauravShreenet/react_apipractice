@@ -9,7 +9,7 @@ function App() {
       <div className="container">
         <div className="row">
           <div className="col text-center mt-5">
-            <h1>Know Your Comic Characters</h1>
+            <h1>Know Your Marvel Characters</h1>
           </div>
           <hr />
         </div>

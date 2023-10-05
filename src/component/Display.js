@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react'
 import { Card } from './Card'
 import { fetchMovie } from '../utils/axiosHelper'
 
-export const Display = () => {
+export const Display = ({addCharacterList}) => {
 
     const [charater, setCharacter] = useState([]);
     const [error, setError] = useState("");
@@ -24,6 +24,17 @@ export const Display = () => {
         }
     }
 
+    const func = (action) => {
+        if(action !== "delete") {
+            addCharacterList({...charater, action});
+            setCharacter({});
+            strRef.current.value="";
+        }else{
+            setCharacter({});
+            strRef.current.value="";
+        }
+    }
+
   return (
     <div className="rounded-2 p-5 mt-5 shadow">
         <div className="row">
@@ -31,7 +42,7 @@ export const Display = () => {
                 <h3>Marvel Characters</h3>
             </div>
             <form onSubmit={handleOnSubmit}>
-                <div className="row">
+                <div className="row g-3">
                     <div className="col-md-9">
                         <input ref={strRef} type="text" placeholder='Enter the Character...' id="search" className="form-control"/>
                     </div>
@@ -47,7 +58,7 @@ export const Display = () => {
                     {error}
                 </div>}
                 {charater.length > 0 && (
-                    charater.map((item, i)=> (<Card key={i} hero = {item}/>))
+                    charater.map((item, i)=> (<Card key={i} hero = {item} func={func}/>))
                 )}
             </div>
         </div>

@@ -1,4 +1,5 @@
 
+import { useState } from 'react';
 import './App.css';
 import { DarkMode } from './component/DarkMode';
 import { Display } from './component/Display';
@@ -6,6 +7,16 @@ import { Footer } from './component/Footer';
 import { List } from './component/List';
 
 function App() {
+  const [characterList, setCharacterList] = useState([]);
+
+  const addCharacterList = (character) => {
+    const noRepeat = characterList.filter((item) => item.id !== character.id)
+    setCharacterList([
+      ...noRepeat, character
+    ])
+  }
+
+
   return (
     <div className="wrapper min-vh-100">
       <div className="container">
@@ -17,8 +28,8 @@ function App() {
           <hr />
         </div>
 
-        <Display />
-        <List />
+        <Display addCharacterList={addCharacterList}/>
+        <List characterList={characterList}/>
         <Footer />
       </div>
     </div>

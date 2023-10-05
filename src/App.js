@@ -1,5 +1,6 @@
 
 import './App.css';
+import { DarkMode } from './component/DarkMode';
 import { Display } from './component/Display';
 import { Footer } from './component/Footer';
 import { List } from './component/List';
@@ -11,6 +12,7 @@ function App() {
         <div className="row">
           <div className="col text-center mt-5">
             <h1>Know Your Marvel Characters</h1>
+            <DarkMode />
           </div>
           <hr />
         </div>

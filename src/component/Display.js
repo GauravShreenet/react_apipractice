@@ -5,13 +5,10 @@ import { fetchMovie } from '../utils/axiosHelper'
 export const Display = ({addCharacterList}) => {
 
     const [charater, setCharacter] = useState({});
+    const [selectAction, setSelectAction] = useState("collect")
     const [characterList, setCharacterList] = useState([]);
     const [error, setError] = useState("");
     const strRef = useRef("");
-
-    // useEffect=(()=> {
-
-    // }, [])
 
     const handleOnSubmit = async (e) => {
         e.preventDefault();
@@ -31,7 +28,7 @@ export const Display = ({addCharacterList}) => {
 
     const func = (character, action) => {
         if(action !== "delete") {
-            addCharacterList({...character, action});
+            addCharacterList({...character, action: selectAction});
             setCharacter({});
             strRef.current.value="";
         }else{
@@ -39,6 +36,15 @@ export const Display = ({addCharacterList}) => {
             strRef.current.value="";
         }
     }
+
+    // useEffect(() => {
+    //     if (selectAction !== "collect") {
+    //       setCharacterList([]);
+    //     } else {
+    //       const notSelected = characterList.filter((item) => item.action === selectAction);
+    //       setCharacterList(notSelected);
+    //     }
+    //   }, [characterList, selectAction]);
 
   return (
     <div className="rounded-2 p-5 mt-5 shadow">

@@ -11,10 +11,10 @@ export const Card = ({ hero, func }) => {
                 <p className="card-text">{hero?.description?.slice(0, 70)}...</p>
             </div>
             <div className="d-grid mx-3">
-                <button className="btn btn-warning" onClick={()=>func("all")}>Collect</button>
+                <button className="btn btn-warning" onClick={()=>func(hero, "collect")}>Collect</button>
             </div>
             <div className="d-grid my-3 mx-3">
-                <button className="btn btn-danger" onClick={()=>func("delete")}>Delete</button>
+                <button className="btn btn-danger" onClick={()=>func(hero, "delete")}>Delete</button>
             </div>
             
         </div>

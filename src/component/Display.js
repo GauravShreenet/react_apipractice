@@ -1,16 +1,21 @@
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { Card } from './Card'
 import { fetchMovie } from '../utils/axiosHelper'
 
 export const Display = ({addCharacterList}) => {
 
-    const [charater, setCharacter] = useState([]);
+    const [charater, setCharacter] = useState({});
+    const [characterList, setCharacterList] = useState([]);
     const [error, setError] = useState("");
     const strRef = useRef("");
 
+    // useEffect=(()=> {
+
+    // }, [])
+
     const handleOnSubmit = async (e) => {
         e.preventDefault();
-        setCharacter([]);
+        setCharacter({});
         setError("")
         const str = strRef.current.value;
         
@@ -24,9 +29,9 @@ export const Display = ({addCharacterList}) => {
         }
     }
 
-    const func = (action) => {
+    const func = (character, action) => {
         if(action !== "delete") {
-            addCharacterList({...charater, action});
+            addCharacterList({...character, action});
             setCharacter({});
             strRef.current.value="";
         }else{

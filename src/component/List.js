@@ -8,6 +8,7 @@ export const List = ({characterList}) => {
 
     useEffect(() => {
         if(selectedCat === 'all') {
+            console.log(characterList)
             setFiltered(characterList);
         }else{
             const filteredOne = characterList.filter((item) => item.action === selectedCat);

@@ -29,7 +29,7 @@ export const Display = ({addCharacterList}) => {
     const func = (character, action) => {
         if(action !== "delete") {
             addCharacterList({...character, action: selectAction});
-            setCharacter({});
+            // setCharacter({});
             strRef.current.value="";
         }else{
             setCharacter({});

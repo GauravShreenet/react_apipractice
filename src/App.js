@@ -28,7 +28,7 @@ function App() {
           <hr />
         </div>
 
-        <Display addCharacterList={addCharacterList}/>
+        <Display addCharacterList={addCharacterList} characterList={characterList}/>
         <List characterList={characterList}/>
         <Footer />
       </div>

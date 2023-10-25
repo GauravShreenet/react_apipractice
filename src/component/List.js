@@ -26,7 +26,7 @@ export const List = ({characterList}) => {
                         <button type="button" className="btn btn-success" onClick={() => setSelected('right')}>Right</button>
                     </div>
                     <div className="mt-3">
-                        {filteredCharacter.length} Movies Found
+                        {filteredCharacter.length} Character Found
                     </div>
                     <hr />
                 </div>
